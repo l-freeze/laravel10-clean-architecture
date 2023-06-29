@@ -20,6 +20,17 @@ class RouteServiceProvider extends ServiceProvider
     public const HOME = '/home';
 
     /**
+     * @var array{prefix => routefile}
+     */
+    private $routesFileSet = [
+        'account' => 'routes/domain/account.php',
+    ];
+
+    private $routeFileList = [
+        'routes/domain/account.php',
+    ];
+
+    /**
      * Define your route model bindings, pattern filters, and other route configuration.
      */
     public function boot(): void
@@ -35,6 +46,19 @@ class RouteServiceProvider extends ServiceProvider
 
             Route::middleware('web')
                 ->group(base_path('routes/web.php'));
+
+
+            array_walk($this->routesFileSet,
+                fn()=>Route::namespace($this->namespace)
+                ->prefix('account')
+                ->group(base_path('routes/domain/account.php'))
+            );
+            
+            array_walk($this->routesFileSet,
+                fn()=>Route::namespace($this->namespace)
+                ->group(base_path('routes/domain/account.php'))
+            );
+
         });
     }
 }
