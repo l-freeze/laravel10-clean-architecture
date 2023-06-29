@@ -1,0 +1,1 @@
+DomainExceptionを置く

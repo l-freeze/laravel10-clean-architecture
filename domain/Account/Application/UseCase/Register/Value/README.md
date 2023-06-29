@@ -1,0 +1,2 @@
+Infrastructure/Application間のレイヤー越え為のDTOを置く
+ひとつのQueryに対して最大でひとつのDTOを用意する

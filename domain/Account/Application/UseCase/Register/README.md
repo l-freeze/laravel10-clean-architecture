@@ -1,0 +1,1 @@
+UseCaseのInputPort,Interactor,OutputPort

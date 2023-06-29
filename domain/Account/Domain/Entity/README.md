@@ -1,0 +1,2 @@
+Entityを置く
+※ValueObjectは置いてはいけない
