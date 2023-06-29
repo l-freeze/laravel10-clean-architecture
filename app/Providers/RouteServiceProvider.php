@@ -48,15 +48,16 @@ class RouteServiceProvider extends ServiceProvider
                 ->group(base_path('routes/web.php'));
 
 
-            array_walk($this->routesFileSet,
+            array_walk(
+                $this->routesFileSet,
                 fn()=>Route::namespace($this->namespace)
-                ->prefix('account')
-                ->group(base_path('routes/domain/account.php'))
+                    ->prefix('account')
+                    ->group(base_path('routes/domain/account.php'))
             );
             
-            array_walk($this->routesFileSet,
-                fn()=>Route::namespace($this->namespace)
-                ->group(base_path('routes/domain/account.php'))
+            array_walk(
+                $this->routesFileSet,
+                fn()=>Route::namespace($this->namespace)->group(base_path('routes/domain/account.php'))
             );
 
         });

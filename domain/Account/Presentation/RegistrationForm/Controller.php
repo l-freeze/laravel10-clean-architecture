@@ -12,7 +12,7 @@ class Controller extends BaseController
      */
     public function __invoke(Request $request): Response
     {
-        //
+        return Response();
 
     }
 }
