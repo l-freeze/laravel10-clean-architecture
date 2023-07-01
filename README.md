@@ -13,4 +13,12 @@ xdebug.start_with_request=yes
 ./vebdir/bin/sail build --no-cache
 ./vebdir/bin/sail up -d
 
+mysql
+```
+./vendor/bin/sail mysql
+```
 
+larastan
+```
+ ./vendor/bin/phpstan analyze --level=4 ./domain/ --memory-limit=1G
+```

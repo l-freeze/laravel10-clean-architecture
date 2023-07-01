@@ -26,6 +26,9 @@ class RouteServiceProvider extends ServiceProvider
         'account' => 'routes/domain/account.php',
     ];
 
+    /**
+     * @var array<string>
+     */
     private $routeFileList = [
         'routes/domain/account.php',
     ];

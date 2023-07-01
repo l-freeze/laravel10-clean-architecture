@@ -70,7 +70,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => env('APP_TIMEZONE', 'UTC'),
 
     /*
     |--------------------------------------------------------------------------
@@ -168,6 +168,16 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+
+        /**
+         * Application option Service Providers
+         */
+        App\Providers\DebugServiceProvider::class,
+
+        /**
+         * Domain Service Providers
+         */
+        Domain\Account\ServiceProvider::class
     ])->toArray(),
 
     /*
