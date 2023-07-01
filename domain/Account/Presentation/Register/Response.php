@@ -3,14 +3,16 @@
 namespace Domain\Account\Presentation\Register;
 
 use Domain\Account\Application\UseCase\Register\Output;
-use Illuminate\Http\Response as BaseResponse;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Support\Js;
 
-class Response extends BaseResponse
+class Response extends JsonResponse
 {
     public function __construct(Output $output){
         parent::__construct();
-        $content = 'aaaaaaaaaaaaaaaa';
-
-        $this->setContent($content);
+        $this->setData([
+            'registerd email' => $output->email,
+            'result' => $output->result
+        ]);
     }
 }

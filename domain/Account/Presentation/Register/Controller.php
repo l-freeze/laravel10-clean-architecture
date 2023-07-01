@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller as BaseController;
 use Domain\Account\Application\UseCase\Register\Input;
 use Domain\Account\Application\UseCase\Register\Interactor;
 use Domain\Account\Application\UseCase\Register\Output;
+use Domain\Account\Presentation\Register\Request;
 
 class Controller extends BaseController
 {
@@ -15,7 +16,7 @@ class Controller extends BaseController
      */
     public function __invoke(Request $request, Interactor $interactor): Response
     {
-        $input = new Input('name', 'pass');
-        return new Response($interactor->execute());
+        $input = new Input($request->validated('email'), $request->validated('password'));
+        return new Response($interactor->execute($input));
     }
 }

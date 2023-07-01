@@ -3,8 +3,12 @@
 namespace Domain\Account\Presentation\RegistrationForm;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Str;
+use Illuminate\Http\Exceptions\HttpResponseException;
 
-
+/**
+ * @see https://laravel.com/docs/10.x/validation#form-request-validation
+ */
 class Request extends FormRequest
 {
     /**
@@ -23,7 +27,23 @@ class Request extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'email' => [
+                'required',
+                'string'
+            ],
+            'count' => [
+                'integer'
+            ]
         ];
+    }
+
+    /**
+     * Prepare the data for validation.
+     */
+    protected function prepareForValidation(): void
+    {
+        $this->merge([
+            'slug' => Str::slug($this->slug),
+        ]);
     }
 }

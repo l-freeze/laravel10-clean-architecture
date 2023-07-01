@@ -7,8 +7,11 @@ final class Interactor{
 
     }
 
-    public function execute(): Output{
-        return new Output();
+    public function execute(Input $input): Output{
+        return new Output(
+            email: $input->email,
+            result: true
+        );
     }
 
 }
