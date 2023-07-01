@@ -14,6 +14,10 @@ class Account extends Model
     public const CREATED_AT = 'created';
     public const UPDATED_AT = 'updated';
 
+    protected $dates = [
+        'created',
+        'updated'
+    ];
     protected $casts = [
  //       'flag' => 'boolean',
         'created' => 'immutable_datetime',//'datetime',

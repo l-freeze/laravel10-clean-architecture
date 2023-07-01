@@ -4,10 +4,10 @@ namespace Domain\Account;
 
 use Domain\Account\Application\UseCase\Register\Query\IAccountQuery;
 use Domain\Account\Infrastructure\Repository\AccountRepository;
+use Domain\Account\Domain\Repository\IAccountRepository;
 use Domain\Account\Infrastructure\Query\Register\AccountQuery;
 use Illuminate\Contracts\Support\DeferrableProvider;
 use Illuminate\Support\ServiceProvider as BaseServiceProvider;
-use Domain\Account\Domain\Repository\IAccountRepository;
 
 final class ServiceProvider extends BaseServiceProvider implements DeferrableProvider{
     /**
