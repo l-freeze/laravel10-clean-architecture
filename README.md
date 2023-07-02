@@ -1,3 +1,5 @@
+curl -s "https://laravel.build/laravel10-clean-architecture" | bash
+
 
 ```
 ./vendor/bin/sail artisan sail:publish
@@ -7,6 +9,8 @@ docker/8.2/php.ini add
 ```
 [xdebug]
 xdebug.start_with_request=yes
+
+.vscode参照
 ```
 
 ```
