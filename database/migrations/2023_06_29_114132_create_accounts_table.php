@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string(column: 'email', length: 255)->unique();
             $table->string(column: 'password', length: 255)->unique();
+            $table->string(column: 'name', length: 255)->unique()->nullable();
             $table->datetime(column: 'created');
             $table->datetime(column: 'updated');
         });

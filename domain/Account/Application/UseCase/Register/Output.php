@@ -3,10 +3,10 @@ declare(strict_types=1);
 
 namespace Domain\Account\Application\UseCase\Register;
 
-final class Output{    
+readonly final class Output{    
     public function __construct(
-        readonly public string $email,
-        readonly public bool $result
+        public string $email,
+        public bool $result
     ){
     }
 }

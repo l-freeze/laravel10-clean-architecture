@@ -2,10 +2,10 @@
 declare(strict_types=1);
 namespace Domain\Account;
 
-use Domain\Account\Application\UseCase\Register\Query\IAccountQuery;
+use Domain\Account\Application\UseCase\Show\Query\IAccountQuery;
+use Domain\Account\Infrastructure\Query\Show\AccountQuery;
 use Domain\Account\Infrastructure\Repository\AccountRepository;
 use Domain\Account\Domain\Repository\IAccountRepository;
-use Domain\Account\Infrastructure\Query\Register\AccountQuery;
 use Illuminate\Contracts\Support\DeferrableProvider;
 use Illuminate\Support\ServiceProvider as BaseServiceProvider;
 

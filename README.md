@@ -22,3 +22,11 @@ larastan
 ```
  ./vendor/bin/phpstan analyze --level=4 ./domain/ --memory-limit=1G
 ```
+
+
+[url]
+register
+http://localhost:8080/account/register?email=address@example.com&password=password?name
+
+show
+http://localhost:8080/account/show?email=address@example.com
