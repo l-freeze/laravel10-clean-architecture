@@ -8,9 +8,13 @@ export default defineConfig({
             refresh: true,
         }),
     ],
+    //resolve: {
+    //    '@': '/resource/ts'
+    //},
     server: {
         hmr: {
             host: 'localhost'
         }
     },
+    //root: 'resources/solid/index.html'
 });

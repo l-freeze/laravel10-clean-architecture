@@ -1,34 +1,39 @@
+# a
+
+```bash
 curl -s "https://laravel.build/laravel10-clean-architecture" | bash
-
-
 ```
+
+
+```bash
 ./vendor/bin/sail artisan sail:publish
 ```
 
 docker/8.2/php.ini add 
-```
+```vim
 [xdebug]
 xdebug.start_with_request=yes
 
 .vscode参照
 ```
 
-```
+```bash
 ./vebdir/bin/sail build --no-cache
 ./vebdir/bin/sail up -d
-
-mysql
 ```
+
+mysql connect
+```bash
 ./vendor/bin/sail mysql
 ```
 
 larastan
-```
+```bash
  ./vendor/bin/phpstan analyze --level=4 ./domain/ --memory-limit=1G
 ```
 
 
-[url]
+[url](-)
 register
 http://localhost:8080/account/register?email=address@example.com&password=password?name
 
@@ -37,12 +42,18 @@ http://localhost:8080/account/show?email=address@example.com
 
 
 
-[vite]
+[vite](-)
 install
-./vender/bin/sail npm install
+./vender/bin/sail npm install 
 
 dev
 ./vender/bin/sail npm run dev
 
 build
 ./vender/bin/sail npm build
+
+
+solid install
+./vendor/bin/sail npm install solid-js
+./vendor/bin/sail npm install -D typescript vite vite-plugin-solid
+./vendor/bin/sail npx tsc --init

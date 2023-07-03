@@ -1,6 +1,6 @@
 <?php
 declare(strict_types=1);
-namespace Domain\System\Log\Presentation\Get;
+namespace Domain\System\Log\Presentation\Controller\Get;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;

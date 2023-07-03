@@ -1,6 +1,6 @@
 <?php
 declare(strict_types=1);
-namespace Domain\System\Log\Presentation\Get;
+namespace Domain\System\Log\Presentation\Controller\Get;
 
 use App\Http\Controllers\Controller as BaseController;
 use DateTimeImmutable;
