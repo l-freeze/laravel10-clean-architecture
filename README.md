@@ -34,3 +34,15 @@ http://localhost:8080/account/register?email=address@example.com&password=passwo
 
 show
 http://localhost:8080/account/show?email=address@example.com
+
+
+
+[vite]
+install
+./vender/bin/sail npm install
+
+dev
+./vender/bin/sail npm run dev
+
+build
+./vender/bin/sail npm build

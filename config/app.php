@@ -178,6 +178,7 @@ return [
          * Domain Service Providers
          */
         Domain\Account\ServiceProvider::class
+        Domain\System\ServiceProvider::class
     ])->toArray(),
 
     /*

@@ -8,9 +8,9 @@ export default defineConfig({
             refresh: true,
         }),
     ],
-    server: [
+    server: {
         hmr: {
             host: 'localhost'
         }
-    ],
+    },
 });
