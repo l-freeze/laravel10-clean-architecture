@@ -1,6 +1,6 @@
 <?php
 
-namespace Domain\Account\Presentation\Show;
+namespace Domain\Account\Presentation\Controller\Show;
 
 use Domain\Account\Application\UseCase\Show\Output;
 use Illuminate\Http\JsonResponse;

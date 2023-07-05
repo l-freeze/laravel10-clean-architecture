@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::prefix('system/log')->group(function(){
-    Route::get('/add', Domain\System\Log\Presentation\Register\Controller::class);
-    Route::get('/get', Domain\Account\Presentation\Show\Controller::class);
+Route::prefix('system')->group(function(){
+    Route::post('/log', Domain\System\Log\Presentation\Controller\Add\Controller::class);
+    Route::get('/log', Domain\System\Log\Presentation\Controller\Get\Controller::class);
 });

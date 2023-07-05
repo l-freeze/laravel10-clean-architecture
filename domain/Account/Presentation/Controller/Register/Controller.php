@@ -1,13 +1,12 @@
 <?php
 
-namespace Domain\Account\Presentation\Register;
+namespace Domain\Account\Presentation\Controller\Register;
 
 //use Illuminate\Http\Request;
 use App\Http\Controllers\Controller as BaseController;
 use Domain\Account\Application\UseCase\Register\Input;
 use Domain\Account\Application\UseCase\Register\Interactor;
 use Domain\Account\Application\UseCase\Register\Output;
-use Domain\Account\Presentation\Register\Request;
 
 class Controller extends BaseController
 {

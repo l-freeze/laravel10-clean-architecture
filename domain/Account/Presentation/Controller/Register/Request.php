@@ -1,6 +1,6 @@
 <?php
 
-namespace Domain\Account\Presentation\Show;
+namespace Domain\Account\Presentation\Controller\Register;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Str;
@@ -33,6 +33,10 @@ class Request extends FormRequest
                 'required',
                 'string'
             ],
+            'password' => [
+                'required',
+                'string'
+            ]
         ];
     }
 

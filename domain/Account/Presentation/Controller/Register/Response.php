@@ -1,6 +1,6 @@
 <?php
 
-namespace Domain\Account\Presentation\Register;
+namespace Domain\Account\Presentation\Controller\Register;
 
 use Domain\Account\Application\UseCase\Register\Output;
 use Illuminate\Http\JsonResponse;

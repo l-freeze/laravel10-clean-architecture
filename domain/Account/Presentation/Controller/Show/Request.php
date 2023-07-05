@@ -1,9 +1,8 @@
 <?php
 
-namespace Domain\Account\Presentation\Register;
+namespace Domain\Account\Presentation\Controller\Show;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Support\Str;
 use Illuminate\Http\Exceptions\HttpResponseException;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Validation\ValidationException;
@@ -15,11 +14,6 @@ use Illuminate\Http\JsonResponse;
  */
 class Request extends FormRequest
 {
-
-    //public function authorize(): bool
-    //{
-    //    return true;
-    //}
 
     /**
      * Get the validation rules that apply to the request.
@@ -33,22 +27,7 @@ class Request extends FormRequest
                 'required',
                 'string'
             ],
-            'password' => [
-                'required',
-                'string'
-            ]
         ];
-    }
-
-
-    /**
-     * Prepare the data for validation.
-     */
-    protected function prepareForValidation(): void
-    {
-        $this->merge([
-            'slug' => Str::slug($this->slug),
-        ]);
     }
 
 

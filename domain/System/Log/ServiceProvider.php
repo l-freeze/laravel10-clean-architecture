@@ -3,7 +3,7 @@ declare(strict_types=1);
 namespace Domain\System\Log;
 
 use Domain\System\Log\Domain\Repository\ILogRepository;
-use Domain\System\Log\Infrastructure\LogRepository;
+use Domain\System\Log\Infrastructure\Repository\LogRepository;
 use Illuminate\Contracts\Support\DeferrableProvider;
 use Illuminate\Support\ServiceProvider as BaseServiceProvider;
 

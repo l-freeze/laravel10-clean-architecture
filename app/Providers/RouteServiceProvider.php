@@ -24,6 +24,7 @@ class RouteServiceProvider extends ServiceProvider
      */
     private $routesFileSet = [
         'account' => 'routes/domain/account.php',
+        'system' => 'routes/domain/system.php',
     ];
 
     /**
@@ -60,7 +61,7 @@ class RouteServiceProvider extends ServiceProvider
             
             array_walk(
                 $this->routesFileSet,
-                fn()=>Route::namespace($this->namespace)->group(base_path('routes/domain/account.php'))
+                fn($route)=>Route::namespace($this->namespace)->group(base_path($route))
             );
 
         });

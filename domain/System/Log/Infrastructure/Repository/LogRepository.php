@@ -1,6 +1,6 @@
 <?php
 declare(strict_types=1);
-namespace Domain\System\Log\Infrastructure;
+namespace Domain\System\Log\Infrastructure\Repository;
 
 use Domain\System\Log\Domain\Entity\Stack;
 use Domain\System\Log\Domain\Repository\ILogRepository;

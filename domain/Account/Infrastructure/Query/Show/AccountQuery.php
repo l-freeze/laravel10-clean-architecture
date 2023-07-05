@@ -7,12 +7,38 @@ use Domain\Account\Application\UseCase\Show\Exception\AccountNotFoundException;
 use Domain\Account\Application\UseCase\Show\Query\IAccountQuery;
 use Domain\Account\Application\UseCase\Show\Value\Account;
 use App\Models;
+use Domain\Account\Application\UseCase\Show\Command\ILogCommand;
 
 final class AccountQuery implements IAccountQuery{
+    
+    public function __construct(readonly private ILogCommand $logCommand) {
+
+    }
 
     public function getByEmail(string $email): ?Account
     {
-        $result = Models\Account::query()->where('email', '=', $email)->first();
+        $builder = Models\Account::query()->where('email', '=', $email);
+
+        $this->logCommand->add(
+            spanId: __FUNCTION__,
+            log: [
+                'Command' => [
+                    'sql' => $builder->toSql(),
+                    'bindings' => $builder->getBindings(),    
+                ]
+            ]
+        );
+
+        $result = $builder->first();
+        $this->logCommand->add(
+            spanId: __FUNCTION__,
+            log: [
+                'Command' => [
+                    'result' => $result?->toArray(),
+                ]
+            ]
+        );
+
         if(is_null($result)){
             throw new AccountNotFoundException();
         }

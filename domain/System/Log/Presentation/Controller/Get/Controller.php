@@ -7,7 +7,6 @@ use DateTimeImmutable;
 use Domain\System\Log\Application\UseCase\Get\Input;
 use Domain\System\Log\Application\UseCase\Get\Interactor;
 use Domain\System\Log\Application\UseCase\Get\Output;
-use Domain\System\Log\Presentation\Add\Request;
 
 final class Controller extends BaseController{
     public function __invoke(Request $request, Interactor $interactor): Output
