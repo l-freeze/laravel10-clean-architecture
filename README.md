@@ -56,4 +56,5 @@ build
 solid install
 ./vendor/bin/sail npm install solid-js
 ./vendor/bin/sail npm install -D typescript vite vite-plugin-solid
+./vendor/bin/sail npm install -D vite-tsconfig-paths
 ./vendor/bin/sail npx tsc --init
