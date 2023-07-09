@@ -14,7 +14,7 @@ final class LogRepository implements ILogRepository{
         
     }
 
-    public function save(GeneralLog $generalLog): void
+    public function add(GeneralLog $generalLog): void
     {
         $this->stack->add($generalLog);
     }

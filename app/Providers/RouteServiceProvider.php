@@ -7,6 +7,7 @@ use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvi
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Facades\Route;
+use JetBrains\PhpStorm\ArrayShape;
 
 class RouteServiceProvider extends ServiceProvider
 {
@@ -19,19 +20,21 @@ class RouteServiceProvider extends ServiceProvider
      */
     public const HOME = '/home';
 
-    /**
-     * @var array{prefix => routefile}
-     */
-    private $routesFileSet = [
-        'account' => 'routes/domain/account.php',
-        'system' => 'routes/domain/system.php',
-    ];
-
-    /**
-     * @var array<string>
-     */
-    private $routeFileList = [
-        'routes/domain/account.php',
+     #[ArrayShape([
+        [
+        'prefix' => 'string',
+        'filepath' => 'string',
+        ]
+     ])]
+     private $routesFileList = [
+        [
+            'prefix' => 'api',
+            'filepath' => 'routes/domain/account.php',
+        ],
+        [
+            'prefix' => '',
+            'filepath' => 'routes/domain/system.php',
+        ],
     ];
 
     /**
@@ -50,18 +53,10 @@ class RouteServiceProvider extends ServiceProvider
 
             Route::middleware('web')
                 ->group(base_path('routes/web.php'));
-
-
-//            array_walk(
-//                $this->routesFileSet,
-//                fn()=>Route::namespace($this->namespace)
-//                    ->prefix('account')
-//                    ->group(base_path('routes/domain/account.php'))
-//            );
-            
+           
             array_walk(
-                $this->routesFileSet,
-                fn($route)=>Route::namespace($this->namespace)->group(base_path($route))
+                $this->routesFileList,
+                fn($route)=>Route::namespace($this->namespace)->prefix($route['prefix'])->group(base_path($route['filepath']))
             );
 
         });

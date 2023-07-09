@@ -24,7 +24,10 @@ class TraceLog
     {
         $respons = $next($request);
         $log = $this->logRepository->get(TraceId::getInstance()->value);
-        Log::info('TraceLog', [$log->toJson()]);
+        //Todo:debug
+        Log::info('TraceLog', [$log->toJson(JSON_UNESCAPED_UNICODE)]);
+        //Todo:prd
+        //Log::info('TraceLog', [$log->toJson()]);
 
         /*
         $request = Request::create(

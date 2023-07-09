@@ -6,6 +6,8 @@ namespace Domain\Account\Infrastructure\Command\Show;
 use DateTimeImmutable;
 use Domain\Account\Application\UseCase\Show\Command\ILogCommand;
 use Domain\Common\Singleton\TraceId;
+use Domain\System\Log\Domain\Repository\ILogRepository;
+use Domain\System\Log\Domain\Value\GeneralLog;
 use Illuminate\Support\Facades\App;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -20,7 +22,7 @@ final class LogCommand implements ILogCommand{
      */
     private array $tags = [];
 
-    public function __construct() {
+    public function __construct(readonly private ILogRepository $logRepository) {
         $this->setRequestTime(new DateTimeImmutable());
         $this->setTraceId(TraceId::getInstance()->value);
     }
@@ -42,28 +44,14 @@ final class LogCommand implements ILogCommand{
 
     public function add(string $spanId, array $log, array $optionalTags = []): void
     {
-        $content = [
-            'trace_id' => $this->traceId,
-            'span_id' => $spanId,
-            'request_time' => $this->requestTime->format('Y-m-d\TH:i:sp'),
-            'tags' => [...$this->tags, ...$optionalTags],
-            'log' => $log
-        ];
-
-        $request = Request::create(
-            uri: '/system/log',
-            method: "POST",
-            parameters: $content,
-            //cookies: [],
-            //files: [],
-            server: [
-                'CONTENT_TYPE' => 'application/json'
-            ],
-            content: json_encode($content)
+        $log = new GeneralLog(
+            traceId: $this->traceId,
+            spanId: $spanId,
+            requestTime: $this->requestTime,
+            tags: [...$this->tags, ...$optionalTags],
+            log: $log
         );
-        $res = App::handle($request);
-        //$res = Route::dispatch($request);
-        $debug = $res;
+        $this->logRepository->add($log);
 
     }
 }

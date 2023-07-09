@@ -30,7 +30,10 @@ final class Stack implements Jsonable{
      */
     public function toJson($options = 0): string
     {
-        return json_encode($this->logs);
+        $formattedLog = $this->logs;
+
+        //formatする
+        return json_encode($formattedLog);
     }
 
 }
